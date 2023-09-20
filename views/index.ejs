@@ -1,0 +1,43 @@
+<%- include('./partials/header.ejs') %>
+
+<div class="container my-5 center"><h1 class="display-3 text text-center p-5">The latest money conversion</h1></div>
+<div class="container">
+    <form action="/submit" method="post">
+        <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label">Input Your First Number</label>
+            <input type="text" class="form-control" name="firstNumber" id="exampleFormControlInput1" placeholder="100.000">  
+        </div>
+        <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label">Input Your Second Number</label>
+            <input type="text" class="form-control" name="secondNumber" id="exampleFormControlInput1" placeholder="100.000">  
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="operation" id="plus-operation" value="plus">
+            <label class="form-check-label" for="plus">
+              Plus
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="operation" id="minus-operation" value="minus">
+            <label class="form-check-label" for="minus">
+              Minus
+            </label>
+          </div>
+        <div class="mb-3 ">
+            <input type="submit" value="Submit" class="btn btn-primary">
+        </div>
+    </form>
+</div>
+
+
+<div class="container bg bg-color-warning">
+    <% if (locals.data) { %>
+        <h1 class="display-3 text text-center text-bg-primary p-5">Here is the result <%= data %></h1>
+    <% } else{ %>
+    <h1 class="display-3 text text-center text-bg-primary p-5">Here is the result</h1>
+
+    <% } %>
+</div>
+    
+    
+<%- include('./partials/footer.ejs') %>
